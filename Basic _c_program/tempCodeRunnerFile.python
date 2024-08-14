@@ -1,0 +1,16 @@
+def traversal(A,N):
+    for i in range(N+1):
+        print(A[i],end=' ')
+        
+        
+def insertion(A,N,K,ITEM):
+    for i in range(N-1,K-1,-1):
+        A[i+1]=A[i]
+    A[K]=ITEM
+    traversal(A,N)
+        
+A=[10,20,30,40,50]
+N=len(A)-1
+K=4
+ITEM=10
+insertion(A,N,K,ITEM)

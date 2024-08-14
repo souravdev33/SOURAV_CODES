@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "../../.."
+		},
+		{
+			"path": "../../../../sd"
+		},
+		{
+			"path": "../../../../sssss"
+		},
+		{
+			"path": "L:/pftdm assignment"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"stdio.h": "c",
+			"algorithm": "c",
+			"1113.C": "cpp",
+			"iostream": "cpp",
+			"ostream": "cpp",
+			"iomanip": "cpp"
+		}
+	}
+}

@@ -1,0 +1,60 @@
+
+header{
+    background-color: cornflowerblue;
+    border: dashed;
+    border-color: black;
+    border-radius: 15px;
+}
+
+#s{
+    background-color: blueviolet;
+    color: aliceblue;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 22px;
+    border: double;
+    border-radius: 20px;
+}
+.odd{
+    background-color: red;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.even{
+    background-color: yellow;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    text-shadow: 1px 1px 13px rgb(112, 11, 213);
+}
+
+.Box{
+    border: 5px solid;
+    width: 200px;
+    height: 200px;
+    font-size: 5em;
+    margin: auto;
+
+}
+
+#Box1{
+    background-color: red;
+    margin-bottom: 50px;
+}
+#Box2{
+    background-color: blue;
+}
+
+#dora{
+    
+    float: left;
+    margin-right:  20px;
+}
+
+#dora2{
+    float: right;
+}
+
+#doraemon {
+    border: 2px solid black;
+    display: flow-root;
+}
