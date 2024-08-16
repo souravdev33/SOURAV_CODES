@@ -64,8 +64,8 @@ using namespace std;
 
 int main()
 {
-    // freopen("input.txt", "r", stdin);
-    // freopen("output.txt", "w", stdout);
+    freopen("input.txt", "r", stdin);
+    freopen("output.txt", "w", stdout);
 
     ll n;
     cin >> n;
@@ -85,7 +85,7 @@ int main()
 
         while (low < high)
         {
-            int mid = low + (high-low) / 2;
+            int mid = low + (high - low) / 2;
 
             if (v[mid] > 2 * v[i])
             {
