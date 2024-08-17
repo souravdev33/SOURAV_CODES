@@ -1,4 +1,7 @@
 
+
+
+
 #include <iostream>
 #include <bits/stdc++.h>
 #include <algorithm>
@@ -8,23 +11,16 @@
 using ll=long long;
 using namespace std;
 
-
-int main() {
+int main(){
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
-    int tc;
-    cin >> tc; 
 
-    for (int i = 0; i < tc; i++) {
+    ll tc;
+    cin>>tc;
+    while(tc-->0){
         int n;
-        cin >> n;
-
-        int a = n / 10;   
-        int b = n % 10;   
-        
-
-        cout << a+b << endl; 
+        cin>>n;
+        cout<<n%10 + n/10<<endl;              
     }
-
     return 0;
 }
