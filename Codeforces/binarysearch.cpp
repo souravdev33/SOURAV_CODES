@@ -1,51 +1,80 @@
+// #include <iostream>
+// #include <bits/stdc++.h>
+// using namespace std;
+// int main()
+// {
+//     int n;
+//     cin >> n;
+//     int arr[n];
+//     for (int &i : arr)
+//         cin >> i;
+
+//     sort(arr, arr + n);
+
+//     int x;
+//     cin >> x;
+//     int low = 0;
+//     int high = n - 1;
+
+//     while (low < high){
+//         int mid = low + (high - low )/2;
+//         if(arr[mid]==x){
+//             cout<<"Value found at position :"<<mid<<endl;
+//         }
+//     if(arr[mid]<x){
+//         low=mid+1;
+//     }
+//     else{
+//         high=mid-1;
+//     }
+// }
+// }
+
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 using namespace std;
+
+int binary(int n, int arr[], int x)
+{
+    int low = 0;
+    int high = n - 1;
+    while (low <= high)
+    {
+        int mid = low + (high - low) / 2;
+        if (arr[mid] == x)
+        {
+            return mid;
+        }
+        else if (arr[mid] < x)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+      
+    }
+      return -1;
+}
 
 int main()
 {
     int n;
     cin >> n;
-    vector<int> arr(n);
-
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
-
-    sort(arr.begin(), arr.end());
+    int arr[n];
+    for (int &i : arr)
+        cin >> i;
 
     int x;
     cin >> x;
-
-    int left = 0;
-    int right = n;
-    bool found = false;
-
-    while (left <= right)
+    int result = binary(n, arr, x);
+    if (result != -1)
     {
-        int mid = (left + right) / 2;
-        if (arr[mid] == x)
-        {
-            cout << "Element " << arr[mid] << "found at position" << mid << "\n";
-            found = true;
-            break;
-        }
-        else if (arr[mid] > x)
-        {
-            right = mid - 1;
-        }
-        else
-        {
-            left = mid + 1;
-        }
+        cout << "Element found at index: " << result << endl;
     }
-
-    if (!found)
+    else
     {
         cout << "Element not found" << endl;
     }
-
-    return 0;
 }
