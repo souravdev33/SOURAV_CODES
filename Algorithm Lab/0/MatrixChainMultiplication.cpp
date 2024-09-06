@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> m;
-vector<vector<int>> k;
+vector<vector<int>> m+1;
+vector<vector<int>> k+1;
 
 int MatrixChainOrder(vector<int>& v, int i, int j) {
     if (i == j)
