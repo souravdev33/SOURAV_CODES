@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-vector<vector<int>> m+1;
-vector<vector<int>> k+1;
+vector<vector<int>> m;
+vector<vector<int>> k;
 
 int MatrixChainOrder(vector<int>& v, int i, int j) {
     if (i == j)
@@ -27,13 +27,13 @@ int MatrixChainOrder(vector<int>& v, int i, int j) {
 int main() {
     int n;
     cin >> n;
-    vector<int> v(n + 1);
+    vector<int> v(n+1);
     for (int i = 0; i <= n; i++) {
         cin >> v[i];
     }
 
-    m.resize(n + 1, vector<int>(n + 1, -1)); 
-    k.resize(n + 1, vector<int>(n + 1, -1));
+    m.assign(n + 1, vector<int>(n + 1, -1)); 
+    k.assign(n + 1, vector<int>(n + 1, -1));
 
     cout << "Minimum number of multiplications is " << MatrixChainOrder(v, 1, n) << endl;
 
@@ -62,3 +62,6 @@ int main() {
 
     return 0;
 }
+
+
+
