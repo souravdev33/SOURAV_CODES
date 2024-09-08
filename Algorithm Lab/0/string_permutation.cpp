@@ -1,41 +1,41 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void permuteUnique(string &a, int l, int r)
+void permuteUnique(string &str, int l, int r)
 {
 
-    if (l == r)
+    if (l >= str.size())
     {
-        cout << a << endl;
+        cout << str << " ";
     }
     else
     {
 
-        bool flag[256] = {false};
+        // bool flag[256] = {false};
 
         for (int i = l; i <= r; i++)
         {
 
-            if (!flag[a[i]])
-            {
-                flag[a[i]] = true;
+            // if (!flag[str[i]])
+            // {
+                // flag[str[i]] = true;
 
-                swap(a[l], a[i]);
+                swap(str[l], str[i]);
 
-                permuteUnique(a, l + 1, r);
+                permuteUnique(str, l + 1, r);
 
-                swap(a[l], a[i]);
-            }
+                swap(str[l], str[i]);
+                // }   
         }
     }
 }
 
 int main()
 {
+
     string str;
     getline(cin, str);
     int n = str.size();
-
     permuteUnique(str, 0, n - 1);
 
     return 0;
