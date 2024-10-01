@@ -1,66 +1,90 @@
 #include <iostream>
-#include <vector>
-#include <limits.h>
-#include <list>
-#include <utility>
+#include <bits/stdc++.h>
+#include <algorithm>
+#define debug(x) cerr << #x << " = " << (x) << endl;
+using ll = long long;
 using namespace std;
 
-int minDistance(vector<int>& dist, vector<bool>& sptSet, int V) {
-    int min = INT_MAX, min_index;
-    for (int v = 0; v < V; v++)
-        if (!sptSet[v] && dist[v] <= min)
-            min = dist[v], min_index = v;
+int minDistance(int dist[], bool visited[], int V) {
+    int min = INT_MAX;
+    int min_index = -1;
+    for (int v = 0; v < V; v++) {
+        if (!visited[v] && dist[v] <= min) {
+            min = dist[v];
+            min_index = v;
+        }
+    }
     return min_index;
 }
 
-void printSolution(const vector<int>& dist, const vector<int>& parent, int V) {
-    cout << "Vertex \t Distance \t Parent" << endl;
-    for (int i = 0; i < V; i++)
-        cout << i << " " << dist[i] << " " << parent[i] << endl;
+void printPath(vector<int>& parent, int j) {
+    stack<int> path;
+    while (j != -1) {
+        path.push(j);
+        j = parent[j];
+    }
+    while (!path.empty()) {
+        cout << char(path.top() + 'A') << " ";
+        path.pop();
+    }
+    cout << endl;
 }
 
-void dijkstra(const vector<list<pair<int, int>>>& adj, int src, int V) {
-    vector<int> dist(V, INT_MAX);
-    vector<bool> sptSet(V, false);
+void dijkstra(vector<vector<int>>& adj, int V, int S) {
+    int dist[V];
+    bool visited[V] = {false};
     vector<int> parent(V, -1);
-    dist[src] = 0;
 
-    for (int count = 0; count < V - 1; count++) {
-        int u = minDistance(dist, sptSet, V);
-        sptSet[u] = true;
+    for (int i = 0; i < V; i++) {
+        dist[i] = INT_MAX;
+    }
 
-        for (auto& neighbor : adj[u]) {
-            int v = neighbor.first;
-            int weight = neighbor.second;
-            if (!sptSet[v] && dist[u] != INT_MAX 
-                && dist[u] + weight < dist[v]) {
-                dist[v] = dist[u] + weight;
+    dist[S] = 0;
+
+    for (int cnt = 0; cnt < V - 1; cnt++) {
+        int u = minDistance(dist, visited, V);
+        visited[u] = true;
+
+        for (int v = 0; v < V; v++) {
+            if (!visited[v] && adj[u][v] && dist[u] != INT_MAX &&
+                dist[u] + adj[u][v] < dist[v]) {
+                dist[v] = dist[u] + adj[u][v];
                 parent[v] = u;
             }
         }
     }
+    cout << "Shortest distances from source city " << char(S+'A') << "to:\n";
+    for (int i = 0; i < V; i++) {
+        cout << char (i + 'A') << " -> " << dist[i] << endl;
+    }
 
-    printSolution(dist, parent, V);
+    for (int i = 0; i < V; i++) {
+        if (i != S && dist[i] != INT_MAX) {
+            cout << "Path from city " << char (S+'A') << " to city " << char(i+'A') << ": ";
+            printPath(parent, i);
+        }
+    }
 }
 
 int main() {
     int V, E;
-    cout << "Enter the number of vertices: ";
-    cin >> V;
-    cout << "Enter the number of edges: ";
-    cin >> E;
+    char S;
+    cout<<"Enter the number of vertices and endges and source city : ";
+    cin >> V >> E >> S;
 
-    vector<list<pair<int, int>>> adj(V);
+    vector<vector<int>> adj(V, vector<int>(V, 0));
 
-    cout << "Enter the edges (source, destination, weight):" << endl;
+
+    cout<<"Enter the source and destination and weight : "<<endl;
     for (int i = 0; i < E; i++) {
-        int u, v, w;
+        char u, v;
+        int w;
         cin >> u >> v >> w;
-        adj[u].push_back(make_pair(v, w));
-        adj[v].push_back(make_pair(u, w));
+        adj[u - 'A'][v - 'A'] = w;
+        adj[v - 'A'][u - 'A'] = w;
     }
 
-    dijkstra(adj, 0, V);
+    dijkstra(adj, V, S - 'A');
 
     return 0;
 }
