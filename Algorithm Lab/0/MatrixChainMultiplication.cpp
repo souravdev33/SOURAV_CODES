@@ -1,9 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-
-vector<vector<int>>m;
-vector<vector<int>>k;
+vector<vector<int>> m;
+vector<vector<int>> k;
 
 int MatrixChainOrder(vector<int> &v, int i, int j)
 {
@@ -37,22 +36,14 @@ int main()
     {
         cin >> v[i];
     }
+    // Resize matrices and initialize them with -1
+    m.resize(n + 1, vector<int>(n + 1, -1));
+    k.resize(n + 1, vector<int>(n + 1, -1));
 
-
-
-    int row,col;
-    for(int i=0;i<n;i++){
-        cin>>row>>col;
-        if(i==0){
-            v[i]=row;
-        }
-        v[i+1]=col;
-    }
-    // m.assign(n+1,vector<int>(n+1,-1));
-    // k.assign(n+1,vector<int>(n+1,-1));
-
+    // Call the MatrixChainOrder function
     cout << "Minimum number of multiplications is " << MatrixChainOrder(v, 1, n) << endl;
 
+    // Print m matrix
     cout << "m matrix:" << endl;
     for (int i = 1; i <= n; i++)
     {
@@ -66,6 +57,7 @@ int main()
         cout << endl;
     }
 
+    // Print k matrix
     cout << "k matrix:" << endl;
     for (int i = 1; i <= n; i++)
     {
@@ -81,4 +73,3 @@ int main()
 
     return 0;
 }
-

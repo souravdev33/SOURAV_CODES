@@ -100,7 +100,7 @@ void merge(int arr[], int low, int mid, int high) {
     }
     // Copy sorted elements back into the original array
     for (int i = low; i <= high; i++) {
-        arr[i] = temp[i - low];
+        arr[i] = temp[i-low];
     }
 }
 
