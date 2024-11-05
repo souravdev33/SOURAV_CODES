@@ -12,7 +12,7 @@ int MatrixChainOrder(vector<int> &v, int i, int j)
     if (m[i][j] != -1)
         return m[i][j];
 
-    int mini = INT32_MAX;
+    int mini = INT_MAX;
 
     for (int x = i; x < j; x++)
     {

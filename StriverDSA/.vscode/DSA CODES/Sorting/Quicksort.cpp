@@ -28,23 +28,19 @@ void qs(vector<int> &arr, int low, int high) {
     }
 }
 
-vector<int> quickSort(vector<int> arr) {
-    qs(arr, 0, arr.size() - 1);
-    return arr;
-}
 
 int main()
 {
-    vector<int> arr = {4, 6, 2, 5, 7, 9, 1, 3};
-    int n = arr.size();
-    cout << "Before Using quick Sort: " << endl;
+    int n;
+    cin>>n;
+    vector<int> arr(n);
     for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << " ";
+        cin>>arr[i];
     }
     cout << endl;
+    qs(arr, 0, n - 1);
 
-    arr = quickSort(arr);
     cout << "After Using quick sort: " << "\n";
     for (int i = 0; i < n; i++) {
         cout << arr[i] << " ";
