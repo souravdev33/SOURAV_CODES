@@ -12,17 +12,12 @@ int32_t main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int tc = 1;
-    cin >> tc;
+    
 
-    for (int i = 1; i <= tc; i++)
-    {
-        // cout << "Case #" << i << ": ";
-     int n,k;
-     cin>>n>>k;
-     if(n%k>k/2) cout<<n/k *k +k/2<<endl;
-     else cout<<n<<endl;
-    }
+    int x, y;
+    cin >> x >> y;
+
+    cout << min(x,y) << endl;
 
     return 0;
 }

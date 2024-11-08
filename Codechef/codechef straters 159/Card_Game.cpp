@@ -18,11 +18,20 @@ int32_t main()
     for (int i = 1; i <= tc; i++)
     {
         // cout << "Case #" << i << ": ";
-     int n,k;
-     cin>>n>>k;
-     if(n%k>k/2) cout<<n/k *k +k/2<<endl;
-     else cout<<n<<endl;
-    }
+        int n, x;
+        cin >> n >> x;
+        int even = 0, odd = 0;
+        for (int i = 1; i <= n; i++)
+        {
+            if(i%2==0)even++;
+            else odd++;
+        }
 
-    return 0;
+        if(x%2==0){
+            cout<<even-1<<endl;
+        }
+        else{
+            cout<<odd-1<<endl;
+        }
+    }
 }
