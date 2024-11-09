@@ -7,32 +7,42 @@
 #define ll long long;
 using namespace std;
 
-int32_t main() {
+int32_t main()
+{
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr);
 
     int n;
-    cin>>n;
+    cin >> n;
     string str;
-    cin>>str;
+    cin >> str;
 
-    bool flag=true;
-    for(int i=0;i<=str.size();i++){
-        while(i!=n/2){
-            if(str[i]>str[n] and str[i+1]>str[n-1]){
-                flag=false;
-            }
-            else if(str[n]>str[i] and str[n-1]>str[i+1]){
-                flag=false;
-            }
-           
+    string first_half = str.substr(0, n);
+    string second_half = str.substr(n);
+
+    sort(first_half.begin(), first_half.end());
+    sort(second_half.begin(), second_half.end());
+
+    bool all_less = true, all_greater = true;
+    for (int i = 0; i < n; i++)
+    {
+        if (first_half[i] >= second_half[i])
+        {
+            all_less = false;
+        }
+        if (first_half[i] <= second_half[i])
+        {
+            all_greater = false;
         }
     }
-    if(flag){
-        no;
-    }
-    else{
+
+    if (all_less or all_greater)
+    {
         yes;
+    }
+    else
+    {
+        no;
     }
 
     return 0;
