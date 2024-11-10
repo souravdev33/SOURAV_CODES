@@ -11,7 +11,7 @@ int main()
         cin >> i;
 
     vector<int> ar = arr;
-
+    vector<int>res;
     sort(ar.begin(), ar.end());
     int cnt = 0;
 
@@ -19,29 +19,32 @@ int main()
     {
         if (arr[i] != ar[i])
         {
-            l = ar[i];
+            res.push_back(ar[i]);
             cnt++;
             i++;
         }
         if (arr[i] != ar[i])
         {
-            r = ar[i];
+            res.push_back(ar[i]);
             cnt++;
             i++;
         }
-        if (cnt >= 2)
+        if (cnt > 2)
         {
             break;
         }
     }
 
-    if (cnt >= 2)
+    if (cnt > 2)
     {
-        cout << "No" << endl;
+        cout << "no" << endl;
     }
     else
     {
-        cout << "Yes" << endl;
-        cout << l << " " << r << endl;
+        cout << "yes" << endl;
+        cout << res[0] << " " << res[1] << endl;
     }
+
+
+
 }
