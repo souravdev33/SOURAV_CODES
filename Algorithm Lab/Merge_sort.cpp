@@ -166,15 +166,15 @@ void merge(vector<int>&arr, int low, int mid, int high)
             right++;
         }
     }
-    // Copy remaining elements from the left half, if any
+    
     while (left <= mid)
     {
         temp.push_back(arr[left]);
         left++;
     }
-    // Copy remaining elements from the right half, if any
+   
     while (right <= high)
-    { // Fixed condition from mid to right
+    { 
         temp.push_back(arr[right]);
         right++;
     }
