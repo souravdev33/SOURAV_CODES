@@ -9,20 +9,25 @@ using namespace std;
 
 void sourav()
 {
-    int n, m, k;
-    cin >> n >> m >> k;
-    vector<int> a(m), b(k);
+    int n;
+    cin >> n;
+    int v[n+1][n+1];
+    for (int i = 0; i < n; i++)
+    {
+        int u,v;
+        cin>>u>>v;
+        v[u][v]=1;
+        v[v][u]=1;
+    }
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            cout<<v[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 
-    for (int i = 0; i < m; i++)
-    {
-        cin >> a[i];
-    }
-    for (int i = 0; i < k; i++)
-    {
-        cin >> b[i];
-    }
-    
 }
+
 
 int32_t main()
 {

@@ -9,19 +9,37 @@ using namespace std;
 
 void sourav()
 {
-    int n, m, k;
-    cin >> n >> m >> k;
-    vector<int> a(m), b(k);
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto &i : a)
+        cin >> i;
+    if (n == 2)
+    {
+        if (2 * a[0] > a[1] and 2 * a[1] > a[0])
+        {
+            yes
+        }
+        else
+        {
+            no
+        }
+    }
 
-    for (int i = 0; i < m; i++)
+    else
     {
-        cin >> a[i];
+        bool flag = false;
+        for (int i = 0; i < n - 1; i++)
+        {
+            if (2 * a[i] > a[i + 1] and 2 * a[i + 1] > a[i])
+            {
+                flag = true;
+                break;
+            }
+        }
+        if (flag)
+            yes else no
     }
-    for (int i = 0; i < k; i++)
-    {
-        cin >> b[i];
-    }
-    
 }
 
 int32_t main()

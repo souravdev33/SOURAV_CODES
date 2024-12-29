@@ -9,19 +9,23 @@ using namespace std;
 
 void sourav()
 {
-    int n, m, k;
-    cin >> n >> m >> k;
-    vector<int> a(m), b(k);
+    ll n;
+    cin >> n;
 
-    for (int i = 0; i < m; i++)
+    if (n <= 3)
     {
-        cin >> a[i];
+        cout << 1 << endl;
+        return;
     }
-    for (int i = 0; i < k; i++)
+
+    ll cnt = 1;
+    while (n > 3)
     {
-        cin >> b[i];
+        n /= 4;
+        cnt *= 2;
     }
-    
+
+    cout << cnt << endl;
 }
 
 int32_t main()
