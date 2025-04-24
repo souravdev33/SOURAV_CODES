@@ -9,36 +9,27 @@ using namespace std;
 
 void sourav()
 {
-    int n;
+    ll n;
     cin >> n;
 
-    vector<int> a(n);
     for (int i = 0; i < n; i++)
     {
-        cin >> a[i];
-    }
 
-    vector<int> b = a;
-
-    sort(b.begin(), b.end());
-
-    for (int i = 0; i < n; i++)
-    {
-        if (a[i] == b[0])
+        for (int j = 0; j < n; j++)
         {
-            a[i] = b[n - 1];
+            if (j % 2 == 0)
+            {
+
+                cout << (i * n + j / 2) + 1 << " ";
+            }
+            else
+            {
+
+                cout << n * n - (i * n + j / 2) << " ";
+            }
         }
-        else if (a[i] == b[n - 1])
-        {
-            a[i] = b[0];
-        }
+        cout << endl;
     }
-    for (auto i : a)
-    {
-        cout << i << " ";
-    }
-    cout<<endl;
-    for(int i=0;i<n;)
 }
 
 int32_t main()
