@@ -9,14 +9,30 @@ using namespace std;
 
 void sourav()
 {
-    int n, k, x;
-    cin >> n >> k >> x;
+    int n, k;
+    cin >> n >> k;
 
-    for(int i=1;i<=n;i++){
-        if()
+    int x = n * k;
+
+    vector<int> v(x);
+
+    for (auto &i : v)
+    {
+        cin >> i;
     }
 
+    ll sum = 0;
 
+    ll step = n / 2 + 1;
+
+    ll idx = x - step;
+
+    for (int i = 0; i < k; i++)
+    {
+        sum += v[idx];
+        idx -= step;
+    }
+    cout << sum << endl;
 }
 
 int32_t main()
@@ -40,3 +56,4 @@ int32_t main()
 
     return 0;
 }
+

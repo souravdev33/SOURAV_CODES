@@ -9,14 +9,28 @@ using namespace std;
 
 void sourav()
 {
-    int n, k, x;
-    cin >> n >> k >> x;
+    ll n, cnt = 0;
+    cin >> n;
 
-    for(int i=1;i<=n;i++){
-        if()
+    while (n != 1)
+    {
+        if (n % 6 == 0)
+        {
+            n /= 6;
+        }
+        else if (n % 3 == 0)
+        {
+            n *= 2;
+        }
+        else
+        {
+            cout << -1 << endl;
+            return;
+        }
+        cnt++;
     }
 
-
+    cout << cnt << endl;
 }
 
 int32_t main()
